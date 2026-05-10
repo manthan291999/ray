@@ -5,21 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Arpita Ray 🔥 | Long Distance Love</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@300;400;700&family=Dancing+Script:wght@600;700&family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --passion-red: #e11d48;
-            --dark-crimson: #881337;
+            --passion-red: #be123c;
+            --dark-crimson: #4c0519;
+            --neon-rose: #fb7185;
         }
 
         body {
             font-family: 'Kalam', cursive;
-            background: linear-gradient(-45deg, #0f172a, #310011, #000000, #1e000c);
+            background: linear-gradient(-45deg, #0a0005, #2a000f, #000000, #170008);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 20s ease infinite;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            color: #f87171;
+            color: #fda4af;
+        }
+
+        /* Cinematic Noise Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
         }
 
         @keyframes gradientBG {
@@ -30,101 +41,159 @@
 
         .font-dancing { font-family: 'Dancing Script', cursive; }
         .font-caveat { font-family: 'Caveat', cursive; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
 
         /* Embers & Dark Petals */
         .petal {
             position: fixed;
-            background: radial-gradient(circle, #f43f5e 0%, #881337 100%);
+            background: radial-gradient(circle, #f43f5e 0%, #4c0519 100%);
             border-radius: 150% 0 150% 0;
-            opacity: 0.4;
+            opacity: 0.3;
             pointer-events: none;
             z-index: 0;
-            animation: fall linear infinite, sway 3s ease-in-out infinite alternate;
-            box-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+            animation: fall linear infinite, sway 4s ease-in-out infinite alternate;
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
         }
 
         @keyframes fall {
             0% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(110vh) scale(1.2); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(110vh) scale(1.5); opacity: 0; }
         }
 
         @keyframes sway {
-            0% { transform: translateX(-20px) rotate(0deg); }
-            100% { transform: translateX(20px) rotate(60deg); }
+            0% { transform: translateX(-25px) rotate(0deg); }
+            100% { transform: translateX(25px) rotate(90deg); }
         }
 
-        /* Dark Glassmorphism Cards */
+        /* Ultra-Dark Glassmorphism Cards */
         .glass-card {
-            background: rgba(15, 5, 10, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(225, 29, 72, 0.2);
-            box-shadow: 0 15px 50px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(225, 29, 72, 0.1) inset;
+            background: rgba(8, 0, 3, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(225, 29, 72, 0.15);
+            box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 1), 0 0 40px rgba(190, 18, 60, 0.15) inset;
         }
 
-        /* Dark Polaroid Gallery */
+        /* Sultry Polaroid Gallery */
         .polaroid {
-            background: #111;
-            padding: 12px 12px 30px 12px;
-            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0,0,0,0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #050002;
+            padding: 10px 10px 35px 10px;
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.8), 0 0 20px rgba(225, 29, 72, 0.1);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
             cursor: pointer;
             position: relative;
-            border: 1px solid #333;
+            border: 1px solid #2a000f;
+        }
+
+        .polaroid-img-container {
+            position: relative;
+        }
+        
+        /* Vignette overlay for images */
+        .polaroid-img-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+            pointer-events: none;
         }
 
         .polaroid:hover {
-            transform: scale(1.08) rotate(0deg) !important;
+            transform: scale(1.1) rotate(0deg) !important;
             z-index: 20;
-            box-shadow: 0 25px 50px -10px rgba(225, 29, 72, 0.4);
-            border-color: #e11d48;
+            box-shadow: 0 30px 60px -10px rgba(225, 29, 72, 0.5);
+            border-color: #be123c;
         }
 
-        /* Naughty Coupons */
+        /* Naughty VIP Coupons */
         .coupon-card {
-            background: linear-gradient(135deg, #2a0815 0%, #110005 100%);
-            border: 2px dashed #9f1239;
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #1a0008 0%, #080002 100%);
+            border: 1px solid #4c0519;
+            transition: all 0.4s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .coupon-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: #be123c;
+            transition: all 0.4s ease;
         }
         .coupon-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px -5px rgba(225, 29, 72, 0.4);
-            border-color: #f43f5e;
+            transform: translateX(10px);
+            box-shadow: -10px 15px 30px -5px rgba(225, 29, 72, 0.3);
+            border-color: #e11d48;
+        }
+        .coupon-card:hover::before {
+            background: #fb7185;
+            box-shadow: 0 0 15px #fb7185;
         }
         .coupon-claimed {
-            border-color: #10b981 !important;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3) !important;
+            border-color: #f43f5e !important;
+            background: linear-gradient(135deg, #310011 0%, #170008 100%);
+            box-shadow: 0 0 30px rgba(225, 29, 72, 0.4) inset !important;
+        }
+        .coupon-claimed::before {
+            background: #f43f5e;
+            box-shadow: 0 0 20px #f43f5e;
         }
 
         /* Floating animation for elements */
         .float-anim {
-            animation: floating 4s ease-in-out infinite;
+            animation: floating 5s ease-in-out infinite;
         }
         @keyframes floating {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
 
         .continue-btn {
-            animation: pulse-glow 2s infinite;
+            animation: pulse-glow 3s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .continue-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(30deg);
+            animation: shine 4s infinite linear;
         }
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 15px rgba(225, 29, 72, 0.4); transform: translateY(0); }
-            50% { box-shadow: 0 0 30px rgba(225, 29, 72, 0.8); transform: translateY(-3px); }
+            0%, 100% { box-shadow: 0 0 20px rgba(225, 29, 72, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(225, 29, 72, 0.9); }
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
         }
         
         .glow-text {
-            text-shadow: 0 0 10px rgba(244, 63, 94, 0.6);
+            text-shadow: 0 0 25px rgba(244, 63, 94, 0.7);
+        }
+
+        .heartbeat {
+            animation: beat 1.5s ease-in-out infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            20% { transform: scale(1.05); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.08); }
         }
     </style>
 </head>
 <body class="flex flex-col items-center pb-20 pt-10 relative min-h-screen">
+
+    <!-- Cinematic Noise Overlay -->
+    <div class="noise-overlay"></div>
 
     <!-- Container for falling embers/petals -->
     <div id="petals-container"></div>
@@ -132,127 +201,131 @@
     <!-- PAGE 1: SULTRY LDR BIRTHDAY GREETING -->
     <section id="sec1" class="w-full max-w-2xl glass-card min-h-[85vh] rounded-[2rem] p-8 md:p-12 flex flex-col items-center justify-center relative z-10 mb-16 mx-4 text-center transition-all duration-1000">
         
-        <h2 class="font-dancing text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-red-600 mb-6 drop-shadow-sm glow-text float-anim mt-4">
-            Happy Birthday,<br>Gorgeous.
+        <div class="absolute top-6 left-6 border border-rose-900 bg-black/80 text-rose-600 font-cinzel font-bold text-xs tracking-[0.3em] px-4 py-1.5 rounded-full transform -rotate-3 opacity-90 uppercase backdrop-blur-sm shadow-[0_0_15px_rgba(225,29,72,0.4)]">
+            Classified Romance 🔥
+        </div>
+
+        <h2 class="font-cinzel text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-rose-300 via-rose-500 to-red-700 mb-8 drop-shadow-sm glow-text float-anim mt-8 leading-tight uppercase tracking-wide">
+            Happy Birthday,<br><span class="text-[5.5rem] font-dancing text-rose-500 lowercase tracking-normal">My Temptation.</span>
         </h2>
         
         <!-- Sexy Polaroid 1 -->
-        <div class="polaroid transform -rotate-2 w-64 h-72 mx-auto mb-10 group mt-4">
-            <div class="w-full h-52 bg-black overflow-hidden border border-slate-800 rounded-sm">
-                <!-- Replace with your new image filename -->
-                <img src="image1.jpg" alt="Arpita" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 hover:opacity-100" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 24 24\' fill=\'%23881337\'><path d=\'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\'/></svg>'">
+        <div class="polaroid transform -rotate-3 w-64 h-72 mx-auto mb-12 group mt-4">
+            <div class="polaroid-img-container w-full h-52 bg-black overflow-hidden border border-slate-900 rounded-sm">
+                <img src="image1.jpg" alt="Arpita" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 hover:opacity-100 filter contrast-125" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\' viewBox=\'0 0 24 24\' fill=\'%23881337\'><path d=\'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\'/></svg>'">
             </div>
-            <p class="font-caveat text-2xl text-center mt-3 text-rose-300 font-semibold">Missing this view ❤️🔥</p>
+            <p class="font-caveat text-3xl text-center mt-4 text-rose-400 font-semibold drop-shadow-md">Craving this view 💋</p>
         </div>
 
-        <div class="w-24 h-[2px] bg-gradient-to-r from-transparent via-rose-500 to-transparent mb-8"></div>
-        <p class="font-kalam text-xl md:text-2xl text-rose-100/80 max-w-lg leading-relaxed mb-8">
-            To the sexiest, most breathtaking woman alive. Being far away from you today is torture. I wish I was there to unwrap you right now... but don't worry, we're going to celebrate properly across the miles tonight. 😉
+        <div class="w-32 h-[1px] bg-gradient-to-r from-transparent via-rose-500 to-transparent mb-8"></div>
+        
+        <p class="font-kalam text-xl md:text-2xl text-rose-200/90 max-w-lg leading-relaxed mb-10 text-shadow-sm">
+            To the most breathtakingly gorgeous woman alive. Being far away from you today is pure torture. I wish I was there to unwrap you right now... but don't worry, we are going to celebrate properly across the miles tonight. 😉
         </p>
         
-        <button onclick="revealNext('sec2', this)" class="continue-btn mt-6 px-10 py-3 bg-black/60 border border-rose-500 rounded-full font-caveat text-3xl text-rose-400 backdrop-blur-sm transition-all hover:scale-105 hover:text-rose-300 hover:bg-rose-950 flex items-center gap-3">
-            Touch to undress more... <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        <button onclick="revealNext('sec2', this)" class="continue-btn mt-4 px-10 py-4 bg-gradient-to-r from-rose-900 to-black border border-rose-600 rounded-full font-cinzel text-xl tracking-widest text-rose-200 backdrop-blur-sm transition-all hover:scale-105 hover:text-white flex items-center gap-3 shadow-[0_0_20px_rgba(225,29,72,0.5)]">
+            TOUCH TO UNDRESS MORE <svg class="w-6 h-6 heartbeat" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </button>
     </section>
 
     <!-- PAGE 2: SPICY LDR SHAYARI & MEMORIES -->
     <section id="sec2" class="hidden opacity-0 translate-y-10 transition-all duration-1000 ease-out w-full max-w-2xl glass-card min-h-[70vh] rounded-[2rem] p-8 md:p-12 flex-col items-center justify-center relative z-10 mb-16 mx-4">
-        <h2 class="font-caveat text-5xl font-bold text-rose-500 mb-4 drop-shadow-sm text-center glow-text">Across The Miles</h2>
-        <div class="w-32 h-[2px] bg-rose-700/50 mb-12 rounded-full"></div>
+        <h2 class="font-cinzel text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-700 mb-4 drop-shadow-sm text-center glow-text uppercase tracking-widest">Across The Miles</h2>
+        <div class="w-40 h-[1px] bg-rose-600/50 mb-16 rounded-full shadow-[0_0_10px_#e11d48]"></div>
         
         <!-- Hinglish Spicy Shayari & Image 2 -->
-        <div class="flex flex-col md:flex-row items-center gap-8 mb-16 w-full px-2">
-            <div class="polaroid transform rotate-3 w-52 h-60 flex-shrink-0 group">
-                <div class="w-full h-48 bg-black overflow-hidden border border-slate-800 rounded-sm">
+        <div class="flex flex-col md:flex-row items-center gap-8 mb-20 w-full px-2">
+            <div class="polaroid transform rotate-4 w-52 h-60 flex-shrink-0 group">
+                <div class="polaroid-img-container w-full h-48 bg-black overflow-hidden border border-slate-900 rounded-sm">
                     <!-- Replace with your new image filename -->
-                    <img src="image2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 hover:opacity-100" onerror="this.style.display='none'">
+                    <img src="image2.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 hover:opacity-100 filter contrast-125" onerror="this.style.display='none'">
                 </div>
             </div>
-            <div class="bg-black/50 p-6 rounded-2xl border border-rose-900/50 shadow-sm relative w-full">
-                <div class="text-5xl text-rose-800 absolute -top-6 -left-2 opacity-50 font-serif">"</div>
-                <p class="font-kalam text-xl text-rose-200 text-center md:text-left leading-relaxed relative z-10 italic">
-                    "Faasle zaroor hain hamare beech, par mere khayalon mein tu har pal mere bistar par hai. Video call pe teri ek jhalak mere din ko raat aur raat ko aag bana deti hai, Panda." 🔥
+            <div class="bg-black/60 p-8 rounded-2xl border border-rose-900 shadow-[0_0_30px_rgba(0,0,0,0.8)] relative w-full hover:border-rose-700 transition-colors duration-500">
+                <div class="text-6xl text-rose-900 absolute -top-8 -left-4 opacity-70 font-serif">"</div>
+                <p class="font-caveat text-3xl text-rose-200/90 text-center md:text-left leading-relaxed relative z-10">
+                    Tere honthon ki talab aur teri saanson ki garmi... aaj raat sirf tu aur main, aur hamare beech ki yeh aag. Faasle sirf jism ke hain, rooh toh kabki ek ho chuki hai, Panda. 🔥
                 </p>
-                <div class="text-5xl text-rose-800 absolute -bottom-10 -right-2 opacity-50 font-serif">"</div>
+                <div class="text-6xl text-rose-900 absolute -bottom-14 -right-4 opacity-70 font-serif">"</div>
             </div>
         </div>
 
         <!-- English Spicy Shayari & Image 3 -->
         <div class="flex flex-col md:flex-row-reverse items-center gap-8 mb-12 w-full px-2">
-            <div class="polaroid transform -rotate-4 w-52 h-60 flex-shrink-0 group">
-                <div class="w-full h-48 bg-black overflow-hidden border border-slate-800 rounded-sm">
+            <div class="polaroid transform -rotate-6 w-52 h-60 flex-shrink-0 group">
+                <div class="polaroid-img-container w-full h-48 bg-black overflow-hidden border border-slate-900 rounded-sm">
                     <!-- Replace with your new image filename -->
-                    <img src="image3.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 hover:opacity-100" onerror="this.style.display='none'">
+                    <img src="image3.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 hover:opacity-100 filter contrast-125" onerror="this.style.display='none'">
                 </div>
             </div>
-            <div class="bg-black/50 p-6 rounded-2xl border border-rose-900/50 shadow-sm relative w-full">
-                <div class="text-5xl text-rose-800 absolute -top-6 -left-2 opacity-50 font-serif">"</div>
-                <p class="font-kalam text-xl text-rose-200 text-center md:text-right leading-relaxed relative z-10 italic">
-                    "The miles between us mean nothing when my desire for you means everything. I am counting the agonizing seconds until I can finally pull you close and make up for all this lost time." 💋
+            <div class="bg-black/60 p-8 rounded-2xl border border-rose-900 shadow-[0_0_30px_rgba(0,0,0,0.8)] relative w-full hover:border-rose-700 transition-colors duration-500">
+                <div class="text-6xl text-rose-900 absolute -top-8 -left-4 opacity-70 font-serif">"</div>
+                <p class="font-caveat text-3xl text-rose-200/90 text-center md:text-right leading-relaxed relative z-10">
+                    I want you in ways words can't explain. I crave the taste of your skin, the sound of your voice whispering my name, and the intoxicating heat of you pressing against me. 💋
                 </p>
-                <div class="text-5xl text-rose-800 absolute -bottom-10 -right-2 opacity-50 font-serif">"</div>
+                <div class="text-6xl text-rose-900 absolute -bottom-14 -right-4 opacity-70 font-serif">"</div>
             </div>
         </div>
         
-        <button onclick="revealNext('sec3', this)" class="continue-btn mt-4 px-8 py-3 bg-rose-900/40 hover:bg-rose-800 border border-rose-500 rounded-full font-caveat text-3xl text-rose-300 shadow-lg backdrop-blur-sm transition-all hover:scale-105 flex items-center gap-2">
-            See your virtual gifts 🎁 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        <button onclick="revealNext('sec3', this)" class="continue-btn mt-8 px-10 py-4 bg-gradient-to-r from-rose-900 to-black border border-rose-600 rounded-full font-cinzel text-xl tracking-widest text-rose-200 shadow-[0_0_20px_rgba(225,29,72,0.5)] transition-all hover:scale-105 flex items-center gap-3 uppercase">
+            Reveal Your Gifts <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </button>
     </section>
 
-    <!-- PAGE 3: THE NAUGHTY COUPON BOOK (LDR EDITION) -->
+    <!-- PAGE 3: THE NAUGHTY VIP COUPON BOOK -->
     <section id="sec3" class="hidden opacity-0 translate-y-10 transition-all duration-1000 ease-out w-full max-w-2xl glass-card min-h-[60vh] rounded-[2rem] p-8 md:p-12 flex-col items-center justify-center relative z-10 mb-16 mx-4">
-        <div class="text-5xl mb-2 float-anim">😈</div>
-        <h2 class="font-caveat text-5xl font-bold text-rose-500 mb-4 drop-shadow-sm glow-text text-center">LDR Coupon Book</h2>
-        <div class="w-24 h-[2px] bg-rose-700/50 mb-6 rounded-full"></div>
-        <p class="text-xl text-center text-rose-200/80 mb-10 max-w-md font-kalam">Distance can't stop us. Tap to claim your spicy birthday gifts. Redeemable tonight on camera, or saved for the very second we meet. 😉</p>
+        <div class="text-5xl mb-4 float-anim drop-shadow-[0_0_15px_rgba(225,29,72,0.8)]">😈</div>
+        <h2 class="font-cinzel text-4xl md:text-5xl font-bold text-rose-500 mb-4 drop-shadow-sm glow-text text-center uppercase tracking-widest">VIP Access Passes</h2>
+        <div class="w-40 h-[1px] bg-rose-600/50 mb-8 rounded-full shadow-[0_0_10px_#e11d48]"></div>
+        <p class="text-xl text-center text-rose-200/80 mb-12 max-w-md font-kalam">Distance is just an illusion. Tap to claim your exclusive birthday passes. Redeemable tonight on camera, or saved for the explosive second we finally reunite.</p>
 
         <div class="w-full flex flex-col gap-6 mb-12">
             <!-- Coupon 1 -->
-            <div class="coupon-card rounded-xl p-5 flex items-center justify-between group" onclick="claimCoupon(this, 'Make sure you have a good internet connection and privacy... 📱🔥')">
-                <div class="flex-1">
-                    <h3 class="font-dancing text-3xl text-rose-400 font-bold mb-1">Late Night Spicy Video Call</h3>
-                    <p class="font-kalam text-rose-200/60 text-lg">Wear something nice. Or better yet, nothing at all.</p>
+            <div class="coupon-card rounded-2xl p-6 flex items-center justify-between group" onclick="claimCoupon(this, 'Dim the lights. Wear something sheer... or absolutely nothing at all. 📱🔥')">
+                <div class="flex-1 pr-4">
+                    <h3 class="font-cinzel text-xl text-rose-400 font-bold mb-2 tracking-wider group-hover:text-rose-300 transition-colors">Late Night Sensual Video Call</h3>
+                    <p class="font-caveat text-rose-200/70 text-2xl leading-tight">Let's make this screen completely disappear.</p>
                 </div>
-                <div class="bg-black/50 p-3 rounded-full border border-rose-900/50 group-hover:bg-rose-900/50 transition-colors">
-                    <span class="text-2xl">📱</span>
+                <div class="bg-black p-4 rounded-full border border-rose-900 group-hover:border-rose-500 group-hover:shadow-[0_0_15px_rgba(225,29,72,0.5)] transition-all">
+                    <span class="text-3xl drop-shadow-[0_0_10px_rgba(225,29,72,0.8)]">📱</span>
                 </div>
             </div>
 
             <!-- Coupon 2 -->
-            <div class="coupon-card rounded-xl p-5 flex items-center justify-between group" onclick="claimCoupon(this, 'Sit back, relax, and let me put on a show for you tonight. 😈')">
-                <div class="flex-1">
-                    <h3 class="font-dancing text-3xl text-rose-400 font-bold mb-1">Virtual Striptease</h3>
-                    <p class="font-kalam text-rose-200/60 text-lg">Your wish is my command... live on camera.</p>
+            <div class="coupon-card rounded-2xl p-6 flex items-center justify-between group" onclick="claimCoupon(this, 'Sit back and relax. I am going to fulfill your darkest fantasies, live on camera, just for you. 😈')">
+                <div class="flex-1 pr-4">
+                    <h3 class="font-cinzel text-xl text-rose-400 font-bold mb-2 tracking-wider group-hover:text-rose-300 transition-colors">Private Virtual Show</h3>
+                    <p class="font-caveat text-rose-200/70 text-2xl leading-tight">Your wish is my absolute command tonight.</p>
                 </div>
-                <div class="bg-black/50 p-3 rounded-full border border-rose-900/50 group-hover:bg-rose-900/50 transition-colors">
-                    <span class="text-2xl">🎥</span>
+                <div class="bg-black p-4 rounded-full border border-rose-900 group-hover:border-rose-500 group-hover:shadow-[0_0_15px_rgba(225,29,72,0.5)] transition-all">
+                    <span class="text-3xl drop-shadow-[0_0_10px_rgba(225,29,72,0.8)]">🎥</span>
                 </div>
             </div>
 
             <!-- Coupon 3 -->
-            <div class="coupon-card rounded-xl p-5 flex items-center justify-between group" onclick="claimCoupon(this, 'The moment I see you, we aren\'t leaving the bedroom. 🛏️💋')">
-                <div class="flex-1">
-                    <h3 class="font-dancing text-3xl text-rose-400 font-bold mb-1">Wild Reunion Weekend</h3>
-                    <p class="font-kalam text-rose-200/60 text-lg">Redeemable the exact second we finally meet. Do not disturb sign included.</p>
+            <div class="coupon-card rounded-2xl p-6 flex items-center justify-between group" onclick="claimCoupon(this, 'The exact second we reunite, we are locking the door and not leaving that bed. 🛏️💋')">
+                <div class="flex-1 pr-4">
+                    <h3 class="font-cinzel text-xl text-rose-400 font-bold mb-2 tracking-wider group-hover:text-rose-300 transition-colors">Do-Not-Disturb Weekend</h3>
+                    <p class="font-caveat text-rose-200/70 text-2xl leading-tight">Valid for our next reunion. Phones off. Clothes off.</p>
                 </div>
-                <div class="bg-black/50 p-3 rounded-full border border-rose-900/50 group-hover:bg-rose-900/50 transition-colors">
-                    <span class="text-2xl">🛏️</span>
+                <div class="bg-black p-4 rounded-full border border-rose-900 group-hover:border-rose-500 group-hover:shadow-[0_0_15px_rgba(225,29,72,0.5)] transition-all">
+                    <span class="text-3xl drop-shadow-[0_0_10px_rgba(225,29,72,0.8)]">🛏️</span>
                 </div>
             </div>
             
             <!-- Coupon 4 -->
-            <div class="coupon-card rounded-xl p-5 flex items-center justify-between group" onclick="claimCoupon(this, 'I\'ll be there before you know it. Pack your best lingerie. ✈️❤️')">
-                <div class="flex-1">
-                    <h3 class="font-dancing text-3xl text-rose-400 font-bold mb-1">Next Flight to You</h3>
-                    <p class="font-kalam text-rose-200/60 text-lg">I'll book a ticket. No questions asked. I need my Panda.</p>
+            <div class="coupon-card rounded-2xl p-6 flex items-center justify-between group" onclick="claimCoupon(this, 'You say the word, and I am on that flight. When I arrive, I am completely yours to command. ✈️❤️')">
+                <div class="flex-1 pr-4">
+                    <h3 class="font-cinzel text-xl text-rose-400 font-bold mb-2 tracking-wider group-hover:text-rose-300 transition-colors">Total Submission</h3>
+                    <p class="font-caveat text-rose-200/70 text-2xl leading-tight">I will book the flight. No questions asked. I need you.</p>
                 </div>
-                <div class="bg-black/50 p-3 rounded-full border border-rose-900/50 group-hover:bg-rose-900/50 transition-colors">
-                    <span class="text-2xl">✈️</span>
+                <div class="bg-black p-4 rounded-full border border-rose-900 group-hover:border-rose-500 group-hover:shadow-[0_0_15px_rgba(225,29,72,0.5)] transition-all">
+                    <span class="text-3xl drop-shadow-[0_0_10px_rgba(225,29,72,0.8)]">✈️</span>
                 </div>
             </div>
         </div>
 
-        <button onclick="revealNext('sec4', this)" class="continue-btn mt-2 px-8 py-3 bg-gradient-to-r from-red-600 to-rose-900 hover:shadow-[0_0_20px_rgba(225,29,72,0.8)] border border-rose-500 text-white rounded-full font-caveat text-3xl shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+        <button onclick="revealNext('sec4', this)" class="continue-btn mt-4 px-10 py-4 bg-gradient-to-r from-red-700 to-rose-950 border border-rose-500 text-white rounded-full font-cinzel text-xl tracking-widest shadow-[0_0_25px_rgba(225,29,72,0.6)] transition-all hover:scale-105 flex items-center gap-3 uppercase">
             Final Promise 🔒 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </button>
     </section>
@@ -260,37 +333,38 @@
     <!-- PAGE 4: THE FINAL SULTRY PROMISE -->
     <section id="sec4" class="hidden opacity-0 translate-y-10 transition-all duration-1000 ease-out w-full max-w-2xl glass-card min-h-[70vh] rounded-[2rem] p-8 md:p-12 flex-col items-center justify-center relative z-10 mb-12 mx-4 overflow-hidden">
         
-        <div class="polaroid transform rotate-2 w-52 h-60 mb-10 group">
-            <div class="w-full h-48 bg-black overflow-hidden border border-slate-800">
+        <div class="polaroid transform rotate-3 w-56 h-64 mb-12 group">
+            <div class="polaroid-img-container w-full h-52 bg-black overflow-hidden border border-slate-900 rounded-sm">
                 <!-- Replace with your new image filename -->
-                <img src="image4.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 hover:opacity-100" onerror="this.style.display='none'">
+                <img src="image4.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 hover:opacity-100 filter contrast-125" onerror="this.style.display='none'">
             </div>
         </div>
 
-        <h2 class="font-dancing text-[4rem] md:text-[5rem] text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-red-500 mb-6 drop-shadow-md text-center glow-text leading-none">
+        <h2 class="font-dancing text-[5rem] md:text-[6rem] text-transparent bg-clip-text bg-gradient-to-b from-rose-400 to-red-700 mb-6 drop-shadow-md text-center glow-text leading-none">
             Call Me Tonight.
         </h2>
         
-        <p class="font-kalam text-2xl text-rose-200/80 leading-relaxed mb-10 text-center italic">
+        <p class="font-kalam text-2xl text-rose-200/90 leading-relaxed mb-12 text-center italic tracking-wide">
             "The distance is just temporary. My addiction to you is permanent. Happy Birthday, my sexy Panda. Be ready when my name pops up on your screen..."
         </p>
         
-        <div class="w-16 h-[2px] bg-rose-700 rounded-full mb-6"></div>
-        <p class="font-dancing text-4xl text-rose-500 mb-10 font-bold">- Manthan Mittal</p>
+        <div class="w-24 h-[1px] bg-rose-600/80 rounded-full mb-8 shadow-[0_0_10px_#e11d48]"></div>
+        <p class="font-dancing text-4xl text-rose-500 mb-12 font-bold drop-shadow-[0_0_10px_rgba(225,29,72,0.5)]">- Manthan Mittal</p>
         
-        <button onclick="triggerFinal()" class="bg-gradient-to-r from-rose-700 to-red-900 border border-rose-500 text-white font-caveat text-4xl font-bold py-4 px-12 rounded-full hover:shadow-[0_0_30px_rgba(225,29,72,0.8)] hover:-translate-y-1 transition-all continue-btn">
-            I'm Yours 😈❤️
+        <button onclick="triggerFinal(this)" class="bg-gradient-to-r from-red-800 via-rose-700 to-red-900 border border-rose-400 text-white font-cinzel text-3xl tracking-widest font-bold py-5 px-14 rounded-full hover:shadow-[0_0_40px_rgba(225,29,72,0.9)] hover:-translate-y-1 transition-all continue-btn uppercase heartbeat">
+            I'm Yours 😈
         </button>
     </section>
 
     <!-- CHEEKY ALERT MODAL -->
-    <div id="cheeky-modal" class="fixed inset-0 hidden z-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
-        <div class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
-        <div class="bg-gradient-to-b from-black to-rose-950 border-2 border-rose-600 rounded-3xl p-8 text-center shadow-[0_0_50px_rgba(225,29,72,0.5)] max-w-sm mx-4 transform scale-90 transition-transform duration-300 flex flex-col items-center relative z-10">
-            <div class="text-6xl mb-4">🔥</div>
-            <h2 class="font-dancing text-5xl text-rose-500 mb-4 font-bold glow-text">Coupon Claimed!</h2>
-            <p id="cheeky-message" class="font-kalam text-2xl text-rose-200 mb-8 leading-relaxed"></p>
-            <button onclick="closeCheekyModal()" class="bg-rose-700 text-white font-kalam text-xl font-bold py-2 px-8 rounded-full hover:bg-rose-600 transition-all border border-rose-400">Can't wait 😏</button>
+    <div id="cheeky-modal" class="fixed inset-0 hidden z-50 flex items-center justify-center opacity-0 transition-opacity duration-400">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-lg"></div>
+        <div class="bg-gradient-to-b from-black via-rose-950 to-black border border-rose-600 rounded-[2rem] p-10 text-center shadow-[0_0_60px_rgba(225,29,72,0.4)] max-w-sm mx-4 transform scale-90 transition-transform duration-400 flex flex-col items-center relative z-10">
+            <div class="text-7xl mb-6 drop-shadow-[0_0_15px_rgba(225,29,72,0.8)]">🔥</div>
+            <h2 class="font-cinzel text-3xl text-rose-400 mb-6 font-bold glow-text tracking-widest uppercase">Pass Claimed</h2>
+            <div class="w-full h-[1px] bg-rose-800 mb-6"></div>
+            <p id="cheeky-message" class="font-caveat text-3xl text-rose-200 mb-10 leading-tight italic"></p>
+            <button onclick="closeCheekyModal()" class="bg-rose-800 text-white font-cinzel text-lg tracking-widest font-bold py-3 px-10 rounded-full hover:bg-rose-600 transition-all border border-rose-400 shadow-[0_0_15px_rgba(225,29,72,0.5)] uppercase">Can't wait 😏</button>
         </div>
     </div>
 
@@ -314,11 +388,11 @@
         function createPetal() {
             const petal = document.createElement('div');
             petal.classList.add('petal');
-            const size = Math.random() * 8 + 6; 
+            const size = Math.random() * 10 + 5; 
             petal.style.width = size + 'px';
             petal.style.height = size + 'px';
             petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.animationDuration = Math.random() * 5 + 7 + 's'; 
+            petal.style.animationDuration = Math.random() * 6 + 6 + 's'; 
             petal.style.animationDelay = Math.random() * 5 + 's';
             
             const borderRadius1 = Math.random() * 50 + 100;
@@ -329,8 +403,8 @@
             setTimeout(() => { petal.remove(); }, 12000);
         }
 
-        for(let i = 0; i < 30; i++) { createPetal(); }
-        setInterval(createPetal, 800);
+        for(let i = 0; i < 35; i++) { createPetal(); }
+        setInterval(createPetal, 700);
 
         // --- Coupon Logic ---
         function claimCoupon(element, message) {
@@ -342,7 +416,7 @@
             // Show Cheeky Modal
             const modal = document.getElementById('cheeky-modal');
             const msgElement = document.getElementById('cheeky-message');
-            msgElement.innerText = message;
+            msgElement.innerText = `"${message}"`;
             
             modal.classList.remove('hidden');
             void modal.offsetWidth;
@@ -354,19 +428,20 @@
             const modal = document.getElementById('cheeky-modal');
             modal.style.opacity = '0';
             modal.firstElementChild.nextElementSibling.style.transform = 'scale(0.9)';
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+            setTimeout(() => { modal.classList.add('hidden'); }, 400);
         }
 
         // --- Final Action ---
-        function triggerFinal() {
+        function triggerFinal(btn) {
             // Burst of massive embers
-            for(let i=0; i<80; i++) {
+            for(let i=0; i<100; i++) {
                 setTimeout(createPetal, i*10);
             }
             
-            const btn = document.querySelector('#sec4 button');
-            btn.innerHTML = "See you tonight... 🔥";
-            btn.classList.add('bg-black');
+            btn.innerHTML = "SEE YOU TONIGHT... 🔥";
+            btn.classList.add('bg-black', 'border-rose-900', 'text-rose-500');
+            btn.classList.remove('bg-gradient-to-r', 'from-red-800', 'heartbeat');
+            btn.style.boxShadow = "0 0 50px rgba(225,29,72,1)";
         }
     </script>
 </body>
